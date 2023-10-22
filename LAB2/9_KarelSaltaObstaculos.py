@@ -6,7 +6,7 @@ Ficheiro: 9_KarelSaltaObstaculos.py
 Quando acabar de escrever este ficheiro, a 9_KarelSaltaObstaculos
 vai ser capaz de saltar os obstáculos, tal como descrito
 no enunciado do problema. Tente obter uma solução genérica, 
-que funcione em mundos diferentes.
+que funcione em mundos diferente2s.
 """
 
 
