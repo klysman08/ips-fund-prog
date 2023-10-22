@@ -11,19 +11,11 @@ que funcione em mundos diferente2s.
 
 
 def main():
-    run()
-
-
-def run():
-    count = 0
-    while front_is_clear():
-        move()
-        if front_is_blocked():
+    for i in range(11):
+        if front_is_clear():
+            move()
+        else:
             pular_obstaculo()
-        if left_is_blocked and front_is_blocked():
-            pular_obstaculo()
-
-
 
 def pular_obstaculo():
     turn_left()
@@ -33,15 +25,10 @@ def pular_obstaculo():
     turn_right()
     move()
     turn_left()
-    
 
 def turn_right():
     for i in range(3):
         turn_left()
-
-
-
-
 
 # Não necessita de editar código para além deste ponto
 
