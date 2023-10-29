@@ -2,7 +2,6 @@
 File: 2_preco_com_iva.py
 ----------------------
 indique o que faz este programa
-Calcule o preço final de um produto aplicando o IVA ao preço base. O preço base e a taxa de IVA em percentagem são fornecidos pelo utilizador
 """
 
 def main():

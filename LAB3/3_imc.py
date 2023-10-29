@@ -2,7 +2,6 @@
 File: 3_imc.py
 ----------------------
 indique o que faz este programa
-Calcule o índice de massa corporal (IMC) de uma pessoa dividindo o seu peso pelo quadrado da sua altura. O peso e a altura são fornecidos pelo utilizador.
 
 """
 
