@@ -5,12 +5,12 @@ indique o que faz este programa
 """
 
 def main():
-    salario = float(input("Salário (€): "))
-    irs = float(input("IRS (%): "))
-    seg_social = float(input("Segurança Social (%): "))
-    salario_liquido = salario * (1 - (irs + seg_social) / 100)
-    salario_liquido = salario_liquido + 220
+    salario_base = float(input("Salário base: "))
+    taxa_irs = float(input("Taxa de IRS (%): "))
+    taxa_ss = float(input("Taxa de SS (%): "))
+    salario_liquido = salario_base * (1 - (taxa_irs + taxa_ss) / 100)
     print("Salário líquido:", salario_liquido)
+
 
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
