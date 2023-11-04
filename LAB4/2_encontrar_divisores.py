@@ -5,22 +5,22 @@ indique o que faz este programa
 """
 
 def main():
-    numero = int(input("Digite o numero para encontrar seus divisores: "))
+    
     while True:
+        numero = int(input("Digite o numero para encontrar seus divisores: "))
         if numero == 0:
             print("Programa terminado")
             break
         elif numero < 0:
             print("Numero inválido")
         else:
-            print("Divisores: " + "\n" +
-                  str(encontrar_divisores(numero)))
-            pass
+            encontrar_divisores(numero)
 
 def encontrar_divisores(numero):
     """
     Devolve os divisores de um numero.
     """
+    print("Os divisores de", numero, "são:")
     for i in range(1, numero + 1):
         if numero % i == 0:
             print(i)
