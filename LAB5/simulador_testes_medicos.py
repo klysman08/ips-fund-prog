@@ -7,15 +7,12 @@ indique o que faz este programa
 import random
 
 def main():
-    num_pessoas = 10000
-    taxa_infeccao = 0.01
-    acuracia = 0.99
-    pessoas_doentes = quantidade_pessoas_doentes(num_pessoas, taxa_infeccao)
+    num_pessoas = int(input("Digite o número de pessoas: "))
+    taxa_infeccao = float(input("Digite a taxa de infeção (entre 0 e 1): "))
+    acuracia = float(input("Digite a taxa de precisão do teste (entre 0 e 1): "))
 
-    vp = verdadeiro_positivo(pessoas_doentes, acuracia)
-    fp = falso_positivo(num_pessoas - vp, acuracia)
-    fn = falso_negativo(pessoas_doentes, acuracia)
-
+    vp, fp, fn = simulate_tests(num_pessoas, acuracia, taxa_infeccao)
+        
     print('-------------------')
 
     print(f'Total de pessoaas do estudo: {num_pessoas}')
@@ -27,28 +24,33 @@ def main():
     print(f'Verdadeiros positivos: {vp}')
     print(f'Falsos positivos: {fp}')
     print(f'Falsos negativos: {fn}')
-    print(f'Verdadeiro negativos: {num_pessoas - vp - fp - fn}')
+    print(f'Verdadeiro negativos: {num_pessoas - vp}')
 
     print('-------------------')
 
-    #numero de resultados positivos incorretos dividido pelo numero total de resultados positivos
     print(f'Falsos positivos em relacao aos verdadeiros positivos: {fp / (vp + fp)}')
     
     print('-------------------')
 
-def quantidade_pessoas_doentes(num_pessoas, taxa_infeccao):
-    return num_pessoas * taxa_infeccao
+def simulate_tests(num_pessoas, acuracia, taxa_infeccao):
+    
+    vp = 0
+    fp = 0
+    fn = 0
 
-def verdadeiro_positivo(pessoas_doentes, acuracia):
-    return pessoas_doentes * acuracia
+    for _ in range(num_pessoas):
 
-def falso_positivo(num_pessoas, acuracia):
-    return num_pessoas * (1 - acuracia)
+        is_infected = random.random() < taxa_infeccao
+        test_result = random.random() < acuracia
 
-def falso_negativo(pessoas_doentes, acuracia):
-    return pessoas_doentes * (1 - acuracia)
+        if is_infected and test_result:
+            vp += 1
+        elif not is_infected and not test_result:
+            fp += 1
+        elif is_infected and not test_result:
+            fn += 1
 
-
+    return vp, fp, fn
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
 # para chamar a função main().
