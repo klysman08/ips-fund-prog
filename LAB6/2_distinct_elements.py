@@ -5,21 +5,15 @@ indique o que faz este programa
 """
 
 def distinct_elements(lst):
-    """
-    Retorna uma lista de todos os elementos distintos em lst, na ordem
-    em que os mesmos ocorrem em lst.
-    >>> distinct_elements([1, 2, 3, 4])
-    [1, 2, 3, 4]
-    >>> distinct_elements([1, 1, 2, 2, 3])
-    [1, 2, 3]
-    >>> distinct_elements(['hello', 'hello', 'hello', 'hello', 'hello'])
-    ['hello']
-    >>> distinct_elements([])
-    []
-    """
+    nova_lista = []
+    for i in lst:
+        if i not in nova_lista:
+            nova_lista.append(i)
+    return nova_lista
 
 def main():
-    pass
+    lst = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
+    print(distinct_elements(lst))
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
 # para chamar a função main().
