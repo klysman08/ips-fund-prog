@@ -12,7 +12,7 @@ def distinct_elements(lst):
     return nova_lista
 
 def main():
-    lst = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5]
+    lst = [1, 2, 3, 2, 1, 5, 6, 5, 5, 5, 10]
     print(distinct_elements(lst))
 
 # Esta linha fornecida é necessária no final de um ficheiro Python

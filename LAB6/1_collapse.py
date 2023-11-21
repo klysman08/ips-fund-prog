@@ -7,7 +7,7 @@ indique o que faz este programa
   
 
 def main():
-    lista = [7, 2, 8, 9, 4, 13, 7, 1, 9, 10]
+    lista = [7, 2, 8, 9, 4, 13, 7, 1, 9, 10, 5]
     print(collapse(lista))
     
 

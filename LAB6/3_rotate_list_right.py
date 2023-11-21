@@ -3,23 +3,17 @@ File: 3_rotate_list_right.py
 ----------------------
 indique o que faz este programa
 """
-
-def rotate_list_right(lst, n):
-    """
-    Retorna uma versão ‘rodada’ da lista que roda para a direita
-    n vezes. Cada elemento em numbers é avançado para a frente
-    n posições, e os últimos n elementos são movidos para o
-    início da lista.
-
-    A sua função não deverá modificar a lista que é passada como
-    parâmetro.
-
-    >>> rotate_list_right([1, 2, 3, 4, 5], 2)
-    [4, 5, 1, 2, 3]
-    """
-
 def main():
-    pass
+    lista = [1, 2, 3, 4, 5, 6, 7, 8]
+    passos = 5
+    print(lista)
+    print(rotate_list_right(lista, passos))
+
+def rotate_list_right(lista, passos):
+    nova_lista = []
+    for i in range(0, len(lista)):
+        nova_lista.append(lista[(i - passos)])
+    return nova_lista
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
 # para chamar a função main().
