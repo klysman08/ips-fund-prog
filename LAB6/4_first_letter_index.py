@@ -4,20 +4,31 @@ File: 4_first_letter_index.py
 indique o que faz este programa
 """
 
-def first_list(strs):
-    """
-    Dada uma lista de strings, crie e devolva um dicionário cujas
-    chaves são os primeiros caracteres únicos das strings, e cujos
-    valores são listas de palavras que começam com esses caracteres,
-    na mesma ordem em que aparecem em strs.
-.
-
-    >>> first_list(['banter', 'brahm', 'aardvark', 'python', 'antiquated'])
-    {'b': ['banter', 'brahm'], 'a': ['aardvark', 'antiquated'], 'p': ['python']}
-    """
-
 def main():
-    pass
+    palavras = ['banter', 'brahm', 'crhow', 'aardvark', 'python', 'antiquated']
+    first_list_1(palavras)
+
+
+def first_list_1(palavras):
+    dicionario = {}
+    for palavra in palavras:
+        letra_inicial = palavra[0]
+        if letra_inicial not in dicionario:
+            dicionario[letra_inicial] = [palavra]
+        else:
+            dicionario[letra_inicial].append(palavra)
+
+    print(dicionario)
+
+def first_list(palavras):
+    dicionario = {}
+    for i in range(0, len(palavras)):
+        for j in range(0, len(palavras)):
+            if palavras[i][0] == palavras[j][0]:
+                dicionario[palavras[i][0]] = palavras[j]
+
+    print(dicionario)
+    
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
 # para chamar a função main().

@@ -8,7 +8,7 @@ def main():
     passos = 5
     print(lista)
     print(rotate_list_right(lista, passos))
-
+    
 def rotate_list_right(lista, passos):
     nova_lista = []
     for i in range(0, len(lista)):
