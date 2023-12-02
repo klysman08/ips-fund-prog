@@ -11,11 +11,9 @@ como descrito no enunciado do problema.
 
 def main():
     while front_is_clear():
-        if right_is_blocked():
-            move()
-        else:
+        if not right_is_blocked():
             put_beeper()
-            move()
+        move()
 
 # Não necessita de editar código para além deste ponto
 

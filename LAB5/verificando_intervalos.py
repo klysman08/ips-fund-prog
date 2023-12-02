@@ -21,10 +21,7 @@ def main():
 
 
 def in_range(x, y, z):
-    if x <= y <= z:
-        return True
-    else:
-        return False
+    return x <= y <= z
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
 # para chamar a função main().

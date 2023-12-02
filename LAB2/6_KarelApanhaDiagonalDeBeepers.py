@@ -17,7 +17,7 @@ def main():
     turn_left()
     pick_beeper()
 
-    for i in range(6):
+    for _ in range(6):
         move()
         turn_left()
         move()

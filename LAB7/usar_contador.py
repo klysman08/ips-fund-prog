@@ -11,7 +11,7 @@ def contar_duas_vezes(contador):
     """
     Get and prints next two numbers in a Counter object
     """
-    for i in range(2):
+    for _ in range(2):
         print(contador.proximo_valor())
 
 

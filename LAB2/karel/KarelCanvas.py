@@ -187,10 +187,7 @@ class KarelCanvas(tk.Canvas):
 			self.draw_simple_karel_icon(center, self.karel.direction.value)
 
 	def generate_external_karel_points(self, x, y, center, direction):
-		outer_points = []
-		
-		# Top-left point (referred to as origin) of Karel's body
-		outer_points.extend((x,y))
+		outer_points = [x, y]
 
 		# Calculate Karel's height and width as well as missing diag segments
 		width = self.cell_size * KAREL_WIDTH
@@ -271,15 +268,16 @@ class KarelCanvas(tk.Canvas):
 		horizontal_offset = self.cell_size * KAREL_LEG_HORIZONTAL_OFFSET
 
 		# Generate points for left leg
-		points = []
-		points.extend((x, y + vertical_offset))
-		points.extend((x - leg_length, y + vertical_offset))
-		points.extend((x - leg_length, y + vertical_offset + foot_length))
-		points.extend((x - leg_length + leg_foot_width, y + vertical_offset + foot_length))
-		points.extend((x - leg_length + leg_foot_width, y + vertical_offset + leg_foot_width))
-		points.extend((x, y + vertical_offset + leg_foot_width))
-		points.extend((x, y + vertical_offset))
-
+		points = [
+			x,
+			y + vertical_offset,
+			*(x - leg_length, y + vertical_offset),
+			*(x - leg_length, y + vertical_offset + foot_length),
+			*(x - leg_length + leg_foot_width, y + vertical_offset + foot_length),
+			*(x - leg_length + leg_foot_width, y + vertical_offset + leg_foot_width),
+			*(x, y + vertical_offset + leg_foot_width),
+			*(x, y + vertical_offset),
+		]
 		self.rotate_points(center, points, direction)
 		self.create_polygon(points, fill="black", outline="black", width=KAREL_LINE_WIDTH, tag="karel")
 
@@ -288,14 +286,24 @@ class KarelCanvas(tk.Canvas):
 
 		# Generate points for right leg
 		points = []
-		points.extend((x + horizontal_offset, y))
-		points.extend((x + horizontal_offset, y + leg_length))
-		points.extend((x + horizontal_offset + foot_length, y + leg_length))
-		points.extend((x + horizontal_offset + foot_length, y + leg_length - leg_foot_width))
-		points.extend((x + horizontal_offset + leg_foot_width, y + leg_length - leg_foot_width))
-		points.extend((x + horizontal_offset + leg_foot_width, y))
-		points.extend((x + horizontal_offset, y))
-
+		points.extend(
+			(
+				x + horizontal_offset,
+				y,
+				x + horizontal_offset,
+				y + leg_length,
+				x + horizontal_offset + foot_length,
+				y + leg_length,
+				x + horizontal_offset + foot_length,
+				y + leg_length - leg_foot_width,
+				x + horizontal_offset + leg_foot_width,
+				y + leg_length - leg_foot_width,
+				x + horizontal_offset + leg_foot_width,
+				y,
+				x + horizontal_offset,
+				y,
+			)
+		)
 		self.rotate_points(center, points, direction)
 		self.create_polygon(points, fill="black", outline="black", width=KAREL_LINE_WIDTH, tag="karel")
 
@@ -303,13 +311,15 @@ class KarelCanvas(tk.Canvas):
 		simple_karel_width = self.cell_size * SIMPLE_KAREL_WIDTH
 		simple_karel_height = self.cell_size * SIMPLE_KAREL_HEIGHT
 		center_x, center_y = center
-		points = []
-		points.extend((center_x - simple_karel_width / 2 , center_y - simple_karel_height / 2))
-		points.extend((center_x - simple_karel_width / 2 , center_y + simple_karel_height / 2))
-		points.extend((center_x, center_y + simple_karel_height / 2))
-		points.extend((center_x + simple_karel_width / 2, center_y))
-		points.extend((center_x, center_y - simple_karel_height / 2))
-		points.extend((center_x - simple_karel_width / 2 , center_y - simple_karel_height / 2))
+		points = [
+			center_x - simple_karel_width / 2,
+			center_y - simple_karel_height / 2,
+			*(center_x - simple_karel_width / 2, center_y + simple_karel_height / 2),
+			*(center_x, center_y + simple_karel_height / 2),
+			*(center_x + simple_karel_width / 2, center_y),
+			*(center_x, center_y - simple_karel_height / 2),
+			*(center_x - simple_karel_width / 2, center_y - simple_karel_height / 2),
+		]
 		self.rotate_points(center, points, direction)
 		self.create_polygon(points, fill="white", outline="black", width=KAREL_LINE_WIDTH, tag="karel")
 

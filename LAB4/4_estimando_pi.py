@@ -22,8 +22,7 @@ def gera_pontos(num_pontos):
     
 def estima_pi(pontos=gera_pontos(NUM_PONTOS)):
     print(f'Total de pontos somados: {pontos}')
-    pi=4*pontos/NUM_PONTOS
-    return pi
+    return 4*pontos/NUM_PONTOS
 
 
 

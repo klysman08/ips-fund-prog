@@ -12,10 +12,8 @@ def main():
     
 
 def collapse(lista):
-    collapsed_list = []
     i = 0
-    for i in range(0, len(lista)-1, 2):
-        collapsed_list.append(lista[i] + lista[i+1])
+    collapsed_list = [lista[i] + lista[i+1] for i in range(0, len(lista)-1, 2)]
     if len(lista) % 2 != 0:
         collapsed_list.append(lista[-1])
     return collapsed_list

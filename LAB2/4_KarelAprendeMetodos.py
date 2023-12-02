@@ -14,7 +14,7 @@ def main():
 
 
 def move_mile():
-    for i in range(8):
+    for _ in range(8):
         move()
 
 def move_backward():

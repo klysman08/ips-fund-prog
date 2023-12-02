@@ -53,8 +53,11 @@ class WorldBuilderApplication(tk.Frame):
 		self.master.tk.call('wm', 'iconphoto', self.master._w, img)
 
 	def setup_world(self):
-		load_existing = messagebox.askyesno("World Selection", "Would you like to load an existing world? \n\nSelecting 'No' will allow you to start with a blank slate.", parent=self.master)
-		if load_existing:
+		if load_existing := messagebox.askyesno(
+			"World Selection",
+			"Would you like to load an existing world? \n\nSelecting 'No' will allow you to start with a blank slate.",
+			parent=self.master,
+		):
 			self.load_world(init=True)
 		else:
 			self.create_new_world(init=True, default=True)
@@ -271,8 +274,9 @@ class WorldBuilderApplication(tk.Frame):
 
 	def save_world(self):
 		filename = asksaveasfilename(initialdir="./worlds", title="Save Karel World", filetypes=[("Karel Worlds", "*.w")], parent=self.master)
-		if filename == "": return 
-		if not filename.endswith(".w"): filename = filename + ".w"
+		if filename == "": return
+		if not filename.endswith(".w"):
+			filename = f"{filename}.w"
 		self.world.save_to_file(filename, self.karel)
 		
 

@@ -239,12 +239,10 @@ class Karel():
 		if self._world.wall_exists(self._avenue, self._street, direction):
 			return False
 
-		# must also check for alternate possible representation of wall 
-		if self._world.wall_exists(next_avenue, next_street, opposite_direction):
-			return False
-
-		# If all previous conditions checked out, then the front is clear
-		return True
+		# must also check for alternate possible representation of wall
+		return not self._world.wall_exists(
+			next_avenue, next_street, opposite_direction
+		)
 
 	def front_is_blocked(self):
 		"""

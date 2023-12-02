@@ -10,10 +10,7 @@ def main():
     print(rotate_list_right(lista, passos))
     
 def rotate_list_right(lista, passos):
-    nova_lista = []
-    for i in range(0, len(lista)):
-        nova_lista.append(lista[(i - passos)])
-    return nova_lista
+    return [lista[(i - passos)] for i in range(0, len(lista))]
 
 # Esta linha fornecida é necessária no final de um ficheiro Python
 # para chamar a função main().

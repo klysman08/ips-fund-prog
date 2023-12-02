@@ -171,15 +171,16 @@ class KarelWorld():
 								continue
 						elif keyword == "beeperbag":
 							# handle the edge case where Karel has infinite beepers
-							if param == "infinity" or param == "infinite":
+							if param in ["infinity", "infinite"]:
 								val = INFINITY
 						elif keyword == "color":
 							# TODO: add check for valid color? 
-							val = param 
+							val = param
 						# only store non-null values
 						if val is not None: params["val"] = val
 
 			return keyword.lower(), params, True
+
 
 
 		for i, line in enumerate(self._world_file):

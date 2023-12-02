@@ -13,11 +13,9 @@ para funcionar bem com qualquer dos três mundos fornecidos.
 def main():
     move()
     while front_is_clear():
-        if left_is_blocked():
-            move()
-        else:
+        if not left_is_blocked():
             turn_left()
-            move()
+        move()
         
 
 

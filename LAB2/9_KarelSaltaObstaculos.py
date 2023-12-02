@@ -11,7 +11,7 @@ que funcione em mundos diferente2s.
 
 
 def main():
-    for i in range(11):
+    for _ in range(11):
         if front_is_clear():
             move()
         else:
@@ -27,7 +27,7 @@ def pular_obstaculo():
     turn_left()
 
 def turn_right():
-    for i in range(3):
+    for _ in range(3):
         turn_left()
 
 # Não necessita de editar código para além deste ponto

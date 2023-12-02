@@ -9,12 +9,8 @@ def main():
     
 
 def calcula_distancia():
-    ponto1 = []
-    ponto2 = []
-    for i in range(2):
-        ponto1.append(float(input("Ponto 1 (x,y): ")))
-    for i in range(2):
-        ponto2.append(float(input("Ponto 2 (x,y): ")))
+    ponto1 = [float(input("Ponto 1 (x,y): ")) for _ in range(2)]
+    ponto2 = [float(input("Ponto 2 (x,y): ")) for _ in range(2)]
     distancia = ((ponto2[0] - ponto1[0]) ** 2 + (ponto2[1] - ponto1[1]) ** 2) ** 0.5
     print("Distância:", distancia)
 

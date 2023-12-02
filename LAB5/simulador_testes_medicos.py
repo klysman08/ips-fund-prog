@@ -47,7 +47,7 @@ def simulate_tests(num_pessoas, acuracia, taxa_infeccao):
             vp += 1
         elif not is_infected and not test_result:
             fp += 1
-        elif is_infected and not test_result:
+        elif is_infected:
             fn += 1
 
     return vp, fp, fn

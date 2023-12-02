@@ -10,8 +10,8 @@ como descrito no enunciado do problema.
 
 
 def main():
-    for i in range(4):
-        for i in range(5): 
+    for _ in range(4):
+        for _ in range(5):
             move()
         turn_left()
 
