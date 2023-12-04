@@ -6,7 +6,7 @@ indique o que faz este programa
 
 def main():
     soma = 0
-    for i in range(3):
+    for _ in range(3):
         nota = float(input("Nota: "))
         soma += nota
         media = soma / 3
